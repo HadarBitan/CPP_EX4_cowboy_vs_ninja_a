@@ -15,7 +15,7 @@ namespace ariel
         private:
             int numOfBoolets;
         public:
-            Cowboy(Point location, string name): Character(location, 011, name), numOfBoolets(6){}
+            Cowboy(string name, Point location): Character(location, 011, name), numOfBoolets(6){}
             void shoot(Character &enemy);
             bool hasboolets();
             void reload();

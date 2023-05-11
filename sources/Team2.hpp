@@ -1,5 +1,5 @@
-#ifndef TEAM_HPP
-#define TEAM_HPP
+#ifndef TEAM2_HPP
+#define TEAM2_HPP
 
 #pragma once
 
@@ -7,25 +7,22 @@
 #include <string>
 #include <vector>
 #include "Point.hpp"
-#include "Cowboy.hpp"
-#include "YoungNinja.hpp"
-#include "TrainedNinja.hpp"
-#include "OldNinja.hpp"
+#include "Character.hpp"
 
 namespace ariel
 {
-    class Team
+    class Team2
     {
         private:
             vector<Character> team;
             Character * leader;
         public:
-            Team(Character &leader);
+            Team2(Character &leader);
             void add(Character &teamMember);
-            void attack(Team *enemy);
+            void attack(Team2 &enemy);
             int stillAlive();
             void print();
-            ~Team();
+            ~Team2();
     };
 }
 
