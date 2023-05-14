@@ -11,7 +11,8 @@ namespace ariel
         bool Character::isAlive(){return false;}
         double Character::distance(Character &other){return 0.0;}
         void Character::hit(int numOfPoints){}
-        string Character::getName(){return "";}
-        Point Character::getLocation(){return Point(0,0);}
-        void Character::print(){}
+        string Character::getName(){return this->name;}
+        Point Character::getLocation(){return this->location;}
+        int Character::getHitPoint(){return this->hitPoint;}
+        string Character::print(){return "";}
 }

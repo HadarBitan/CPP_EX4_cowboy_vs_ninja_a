@@ -6,8 +6,9 @@
 
 namespace ariel
 {
-    void Cowboy::shoot(Character &enemy){}
+    void Cowboy::shoot(Character *enemy){}
     bool Cowboy::hasboolets(){}
     void Cowboy::reload(){}
-    void Cowboy::print(){}
+    int Cowboy::getNumOfBoolets(){return this->numOfBoolets;}
+    string Cowboy::print(){return "";}
 }

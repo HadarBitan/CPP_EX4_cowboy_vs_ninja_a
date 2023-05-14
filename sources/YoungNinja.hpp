@@ -10,7 +10,7 @@
 
 namespace ariel
 {
-    class YoungNinja : protected Ninja
+    class YoungNinja : public Ninja
     {
         public:
             YoungNinja(string name, Point location): Ninja(location, 100, name, 14){}

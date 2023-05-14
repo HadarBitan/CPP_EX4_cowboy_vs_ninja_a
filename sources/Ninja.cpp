@@ -5,7 +5,8 @@
 
 namespace ariel
 {
-    void Ninja::move(Character &enemy){}
-    void Ninja::slash(Character &enemy){}
-    void Ninja::print(){}
+    void Ninja::move(Character *enemy){}
+    void Ninja::slash(Character *enemy){}
+    int Ninja::getSpeed(){return this->speed;}
+    string Ninja::print(){return "";}
 }

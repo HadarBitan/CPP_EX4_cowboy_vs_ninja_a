@@ -17,11 +17,11 @@ namespace ariel
             vector<Character> team;
             Character * leader;
         public:
-            SmartTeam(Character &leader);
-            void add(Character &teamMember);
-            void attack(SmartTeam &enemy);
+            SmartTeam(Character *leader);
+            void add(Character *teamMember);
+            void attack(SmartTeam *enemy);
             int stillAlive();
-            void print();
+            string print();
             ~SmartTeam();
     };
 }

@@ -11,15 +11,16 @@
 
 namespace ariel
 {
-    class Ninja : protected Character
+    class Ninja : public Character
     {
         protected:
             int speed;
         public:
             Ninja(Point location, int hitPoint, string name, int speed): Character(location, hitPoint, name), speed(speed){}
-            void move(Character &enemy);
-            void slash(Character &enemy);
-            void print();
+            void move(Character *enemy);
+            void slash(Character *enemy);
+            int getSpeed();
+            string print();
     };
 }
 
