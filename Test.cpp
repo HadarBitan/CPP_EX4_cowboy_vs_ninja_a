@@ -73,7 +73,6 @@ TEST_CASE("end of a game")
         team_A.attack(&team_B);
         team_B.attack(&team_A);
     }
-    CHECK((team_A.stillAlive() == 0) || (team_B.stillAlive() == 0));
     if(team_A.stillAlive() == 0)
     {
         CHECK_FALSE(tom->isAlive());
@@ -97,25 +96,12 @@ TEST_CASE("game with team2")
     YoungNinja *yogi = new YoungNinja("Yogi", Point(64,57));
     team_A.add(yogi);
     team_B.add(hikari);
-    
-    string outTeamA = "";
-    string outTeamB = "";
+    Cowboy *andrew = new Cowboy("Andrew", Point(5,21));  
+    team_B.add(andrew);
+    string outTeamA = "C: Tom, 110 hit points, location: (32.3,44)\nN: Yogi, 100 hit points, location: (64,57)";
+    string outTeamB = "N: Sushi, 150 hit points, location: (1.3,3.5)\nN: hikari, 120 hit points, location: (12,81)\nC: Andrew, 110 hit points, location: (5,21)";
     CHECK_EQ(team_A.print(), outTeamA);
     CHECK_EQ(team_B.print(), outTeamB);
-}
-
-TEST_CASE("game with SmartTeam")
-{
-    Point a(32.3,44),b(1.3,3.5);
-    Cowboy *tom = new Cowboy("Tom", a);
-    OldNinja *sushi = new OldNinja("sushi", b);
-    SmartTeam team_A(tom); 
-    SmartTeam team_B(sushi);
-    TrainedNinja *hikari = new TrainedNinja("Hikari", Point(12,81));
-    YoungNinja *yogi = new YoungNinja("Yogi", Point(64,57));
-    team_A.add(yogi);
-    team_B.add(hikari);
-
 }
 
 TEST_CASE("throwing errors")
@@ -129,6 +115,15 @@ TEST_CASE("throwing errors")
     YoungNinja *yogi = new YoungNinja("Yogi", Point(64,57));
     team_A.add(yogi);
     team_B.add(hikari);
+    //a character trying to hit herself
+    CHECK_THROWS(tom->shoot(tom));
+    CHECK_THROWS(sushi->slash(sushi));
+    //the cowboy use all his boolets and try to soot when he is booletless
+    for(int i = 0; i < 6; i++)
+    {
+        tom->shoot(sushi);
+    }
+    CHECK_THROWS(tom->shoot(sushi));
     //a team that has no members allive tries to attack the other team or the other team tries to attack her
     while(team_A.stillAlive() > 0 && team_B.stillAlive() > 0){
         team_A.attack(&team_B);
@@ -136,15 +131,4 @@ TEST_CASE("throwing errors")
     }
     CHECK_THROWS(team_A.attack(&team_B));
     CHECK_THROWS(team_B.attack(&team_A));
-    //reinitialize the character
-    Cowboy *tom = new Cowboy("Tom", a);
-    OldNinja *sushi = new OldNinja("sushi", b);
-    TrainedNinja *hikari = new TrainedNinja("Hikari", Point(12,81));
-    YoungNinja *yogi = new YoungNinja("Yogi", Point(64,57));
-    //the cowboy use all his boolets and try to soot when he is booletless
-    for(int i = 0; i < 6; i++)
-    {
-        tom->shoot(sushi);
-    }
-    CHECK_THROWS(tom->shoot(sushi));
 }

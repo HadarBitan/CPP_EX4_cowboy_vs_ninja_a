@@ -15,7 +15,7 @@ namespace ariel
             double x;
             double y;
         public:
-            Point(double x, double y): x(x), y(y){}
+            Point(double x_, double y_): x(x_), y(y_){}
             double distance(Point p);
             void print();
             Point moveToward(Point source, Point dest, double dist);

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <utility>
 #include "Point.hpp"
 #include "Character.hpp"
 
@@ -16,7 +17,7 @@ namespace ariel
         protected:
             int speed;
         public:
-            Ninja(Point location, int hitPoint, string name, int speed): Character(location, hitPoint, name), speed(speed){}
+            Ninja(Point location, int hitPoint, string name, int speed): Character(location, hitPoint, std::move(name)), speed(speed){}
             void move(Character *enemy);
             void slash(Character *enemy);
             int getSpeed();
