@@ -8,13 +8,15 @@
 #include <utility>
 #include "Ninja.hpp"
 
+constexpr int hitPointTrained = 120;
+constexpr int SpeedTrained = 12;
 
 namespace ariel
 {
     class TrainedNinja : public Ninja
     {
         public:
-            TrainedNinja(string name, Point location): Ninja(location, 120, std::move(name), 12){}
+            TrainedNinja(string name, Point location): Ninja(location, hitPointTrained, std::move(name), SpeedTrained){}
     };
 }
 

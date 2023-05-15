@@ -14,14 +14,13 @@ namespace ariel
 {
     class Ninja : public Character
     {
-        protected:
-            int speed;
         public:
+            int speed;
             Ninja(Point location, int hitPoint, string name, int speed): Character(location, hitPoint, std::move(name)), speed(speed){}
             void move(Character *enemy);
             void slash(Character *enemy);
             int getSpeed();
-            string print();
+            string print() override;
     };
 }
 

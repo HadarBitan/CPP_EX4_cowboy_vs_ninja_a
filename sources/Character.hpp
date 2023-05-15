@@ -13,19 +13,23 @@ namespace ariel
 {
     class Character
     {
-        protected:
+        public:
             Point location;
             int hitPoint;
             string name;
-        public:
             Character(Point location, int hitPoint, string name);
+            Character(const Character&) = delete; 
+            Character& operator=(const Character&) = delete;
+            Character& operator=(Character&&) = delete;
+            Character(Character&&) = delete;
             bool isAlive();
             double distance(Character &other);
             void hit(int numOfPoints);
             string getName();
             Point getLocation();
-            virtual string print();
+            virtual string print() = 0;
             int getHitPoint();
+            virtual ~Character() = default;
     };
 }
 

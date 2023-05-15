@@ -7,7 +7,6 @@
 
 namespace ariel
 {
-        Team::Team(Character *leader){}
         void Team::add(Character *teamMember){}
         void Team::attack(Team *enemy){}
         int Team::stillAlive(){return 0;}

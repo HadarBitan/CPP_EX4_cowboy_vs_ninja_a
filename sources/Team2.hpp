@@ -17,6 +17,10 @@ namespace ariel
             vector<Character> team;
             Character * leader;
         public:
+            Team2(const Team2&) = delete; 
+            Team2& operator=(const Team2&) = delete;
+            Team2& operator=(Team2&&) = delete;
+            Team2(Team2&&) = delete;
             Team2(Character *leader);
             void add(Character *teamMember);
             void attack(Team2 *enemy);
