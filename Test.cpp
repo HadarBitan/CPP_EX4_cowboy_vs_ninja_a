@@ -28,7 +28,7 @@ TEST_CASE("initialize character")
     CHECK_NOTHROW(hikari->print());
     CHECK_NOTHROW(yogi->print());
     Team team_A(tom); 
-    team_A.add(new YoungNinja("Yogi", Point(64,57)));
+    team_A.add(yogi);
     CHECK_NOTHROW(team_A.print());
     delete tom;
     delete sushi;
