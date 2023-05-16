@@ -30,6 +30,10 @@ TEST_CASE("initialize character")
     Team team_A(tom); 
     team_A.add(new YoungNinja("Yogi", Point(64,57)));
     CHECK_NOTHROW(team_A.print());
+    delete tom;
+    delete sushi;
+    delete hikari;
+    delete yogi;
 }
 
 TEST_CASE("start of game")
@@ -56,6 +60,10 @@ TEST_CASE("start of game")
     CHECK_LE(sushi->getHitPoint(), 150);
     CHECK_LE(hikari->getHitPoint(), 120);
     CHECK_LE(yogi->getHitPoint(), 100);
+    delete tom;
+    delete sushi;
+    delete hikari;
+    delete yogi;
 }
 
 TEST_CASE("end of a game")
@@ -82,7 +90,11 @@ TEST_CASE("end of a game")
     {
         CHECK_FALSE(sushi->isAlive());
         CHECK_FALSE(hikari->isAlive());
-    }
+    }    
+    delete tom;
+    delete sushi;
+    delete hikari;
+    delete yogi;
 }
 
 TEST_CASE("game with team2")
@@ -102,6 +114,11 @@ TEST_CASE("game with team2")
     string outTeamB = "N: Sushi, 150 hit points, location: (1.3,3.5)\nN: hikari, 120 hit points, location: (12,81)\nC: Andrew, 110 hit points, location: (5,21)";
     CHECK_EQ(team_A.print(), outTeamA);
     CHECK_EQ(team_B.print(), outTeamB);
+    delete tom;
+    delete sushi;
+    delete hikari;
+    delete yogi;
+    delete andrew;
 }
 
 TEST_CASE("throwing errors")
@@ -131,4 +148,8 @@ TEST_CASE("throwing errors")
     }
     CHECK_THROWS(team_A.attack(&team_B));
     CHECK_THROWS(team_B.attack(&team_A));
+    delete tom;
+    delete sushi;
+    delete hikari;
+    delete yogi;
 }
